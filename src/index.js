@@ -1,33 +1,48 @@
-import express from 'express';
+import { startServer } from './server.js';
+startServer();
 
-const PORT = 3555;
-const app = express();
+// import express from 'express';
+// import pino from 'pino-http';
+// import cors from 'cors';
 
-app.use((req, res, next) => {
-  console.log(`Tome: ${new Date().toLocaleString()}`);
-  next();
-});
+// const PORT = 3555;
+// const app = express();
 
-app.get('/', (req, res) => {
-  res.json({
-    message: 'Hello word',
-  });
-});
+// app.use(cors());
 
-app.use('', (req, res, next) => {
-  res.status(404).json({
-    message: 'Not found',
-  });
-});
+// app.use(
+//   pino({
+//     transport: {
+//       target: 'pino-pretty',
+//     },
+//   }),
+// );
 
-app.use((err, req, res, next) => {
-  res.status(500).json({
-    message: 'Something went wrong',
-    error: err.message,
-  });
-});
+// app.use((req, res, next) => {
+//   console.log(`Tome: ${new Date().toLocaleString()}`);
+//   next();
+// });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-  console.log(`http://localhost:${PORT}`);
-});
+// app.get('/', (req, res) => {
+//   res.json({
+//     message: 'Hello word',
+//   });
+// });
+
+// app.use('', (req, res, next) => {
+//   res.status(404).json({
+//     message: 'Not found',
+//   });
+// });
+
+// app.use((err, req, res, next) => {
+//   res.status(500).json({
+//     message: 'Something went wrong',
+//     error: err.message,
+//   });
+// });
+
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}`);
+//   console.log(`http://localhost:${PORT}`);
+// });
